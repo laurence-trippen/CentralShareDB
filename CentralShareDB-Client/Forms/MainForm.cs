@@ -1,4 +1,5 @@
 ﻿using CentralShareDB_Client.DB;
+using CentralShareDB_Client.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -70,6 +71,12 @@ namespace CentralShareDB_Client
             {
                 MessageBox.Show("MongoDB is reachable.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void addNewShareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewShareForm nsf = new NewShareForm();
+            nsf.ShowDialog();
         }
     }
 }

@@ -45,6 +45,7 @@
             this.licenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.networkShareClbx = new System.Windows.Forms.CheckedListBox();
+            this.addNewShareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +74,7 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewShareToolStripMenuItem,
             this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -81,7 +83,7 @@
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -177,6 +179,13 @@
             this.networkShareClbx.Size = new System.Drawing.Size(353, 94);
             this.networkShareClbx.TabIndex = 4;
             // 
+            // addNewShareToolStripMenuItem
+            // 
+            this.addNewShareToolStripMenuItem.Name = "addNewShareToolStripMenuItem";
+            this.addNewShareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addNewShareToolStripMenuItem.Text = "Add New Share";
+            this.addNewShareToolStripMenuItem.Click += new System.EventHandler(this.addNewShareToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -217,6 +226,7 @@
         private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem germanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNewShareToolStripMenuItem;
     }
 }
 

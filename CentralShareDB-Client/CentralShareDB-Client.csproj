@@ -72,6 +72,12 @@
     <Compile Include="Forms\ConnectionForm.Designer.cs">
       <DependentUpon>ConnectionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\NewShareForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewShareForm.Designer.cs">
+      <DependentUpon>NewShareForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\DriveSettings.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -88,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewShareForm.resx">
+      <DependentUpon>NewShareForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -111,7 +120,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\icon.ico" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\mongodb.jpg" />
   </ItemGroup>
