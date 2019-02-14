@@ -116,5 +116,33 @@ namespace CentralShareDB_Client
             nsf.ShowDialog();
             sharesListBox.Update();
         }
+
+        private void deleteShareBtn_Click(object sender, EventArgs e)
+        {
+            NetworkShare[] shareBuffer = new NetworkShare[sharesListBox.SelectedItems.Count];
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Do you want to delete these entries?\n");
+
+            int i = 0;
+            foreach (Object item in sharesListBox.SelectedItems)
+            {
+                NetworkShare share = (NetworkShare)item;
+                sb.AppendLine("(" + share.ShareLetter + ":) " + share.SharePath);
+                shareBuffer[i] = share;
+                i++;
+            }
+
+            DialogResult result = MessageBox.Show(sb.ToString(), "Question",
+                             MessageBoxButtons.YesNo,
+                             MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {                
+                foreach (NetworkShare share in shareBuffer)
+                {
+                    NetworkShares.Instance.Shares.Remove(share);
+                }
+            }
+        }
     }
 }

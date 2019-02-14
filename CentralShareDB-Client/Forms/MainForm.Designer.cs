@@ -186,6 +186,7 @@
             this.deleteShareBtn.TabIndex = 5;
             this.deleteShareBtn.Text = "Delete Share";
             this.deleteShareBtn.UseVisualStyleBackColor = true;
+            this.deleteShareBtn.Click += new System.EventHandler(this.deleteShareBtn_Click);
             // 
             // sharesListBox
             // 
