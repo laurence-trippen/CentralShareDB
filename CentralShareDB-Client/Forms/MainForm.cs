@@ -1,5 +1,6 @@
 ﻿using CentralShareDB_Client.DB;
 using CentralShareDB_Client.Forms;
+using CentralShareDB_Client.Model;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
@@ -66,10 +67,14 @@ namespace CentralShareDB_Client
                         string shareLetter = document["share_letter"].AsString;
                         string sharePath = document["share_path"].AsString;
 
-
+                        NetworkShares.Instance.Shares.Add(new NetworkShare(shareLetter, sharePath));
                     }
                 }
             }
+
+            ((ListBox)networkShareClbx).DataSource = NetworkShares.Instance.Shares;
+            ((ListBox)networkShareClbx).DisplayMember = "DisplayMember";
+            ((ListBox)networkShareClbx).ValueMember = "IsChecked";
         }
 
         private void addShareBtn_Click(object sender, EventArgs e)

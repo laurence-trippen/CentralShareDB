@@ -79,6 +79,7 @@
       <DependentUpon>NewShareForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\NetworkShare.cs" />
+    <Compile Include="Model\NetworkShares.cs" />
     <Compile Include="Utils\DriveSettings.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
