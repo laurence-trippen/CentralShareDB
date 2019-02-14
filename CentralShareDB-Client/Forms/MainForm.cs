@@ -40,14 +40,9 @@ namespace CentralShareDB_Client
             }
             else
             {
-                if (!connection.HasDatabase("centralsharedb"))
+                if (!connection.HasDatabaseCollection(Properties.Settings.Default.mongodb_database, "network_shares"))
                 {
-
-
-                    if (connection.HasDatabaseCollection("centralsharedb", "network_shares"))
-                    {
-
-                    }
+                    connection.CreateCollection("network_shares");
                 }
             }
         }

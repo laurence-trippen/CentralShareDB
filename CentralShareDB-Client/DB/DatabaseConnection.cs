@@ -40,7 +40,7 @@ namespace CentralShareDB_Client.DB
         {
             if (this.client != null)
             {
-                var database = client.GetDatabase("centralsharedb");
+                var database = client.GetDatabase(Properties.Settings.Default.mongodb_database);
                 return database.RunCommandAsync((Command<BsonDocument>)"{ping:1}").Wait(1000);
             }
             else
@@ -79,6 +79,15 @@ namespace CentralShareDB_Client.DB
             else
             {
                 return false;
+            }
+        }
+
+        public void CreateCollection(string name)
+        {
+            if (this.client != null)
+            {
+                var database = client.GetDatabase(Properties.Settings.Default.mongodb_database);
+                database.CreateCollection(name);
             }
         }
     }

@@ -46,5 +46,17 @@ namespace CentralShareDB_Client.Properties {
                 this["mongodb_port"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("centralsharedb")]
+        public string mongodb_database {
+            get {
+                return ((string)(this["mongodb_database"]));
+            }
+            set {
+                this["mongodb_database"] = value;
+            }
+        }
     }
 }
