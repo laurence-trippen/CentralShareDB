@@ -35,16 +35,16 @@
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dbVerbindungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.creditsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.licenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.networkShareClbx = new System.Windows.Forms.CheckedListBox();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testConnectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.germanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.creditsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.licenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.networkShareClbx = new System.Windows.Forms.CheckedListBox();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,7 +81,7 @@
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -103,39 +103,6 @@
             this.dbVerbindungToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.dbVerbindungToolStripMenuItem.Text = "Database Connection";
             // 
-            // helpToolStripItem
-            // 
-            this.helpToolStripItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.creditsToolStripMenuItem,
-            this.licenseToolStripMenuItem,
-            this.helpToolStripMenuItem});
-            this.helpToolStripItem.Name = "helpToolStripItem";
-            this.helpToolStripItem.Size = new System.Drawing.Size(24, 20);
-            this.helpToolStripItem.Text = "?";
-            // 
-            // creditsToolStripMenuItem
-            // 
-            this.creditsToolStripMenuItem.Name = "creditsToolStripMenuItem";
-            this.creditsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.creditsToolStripMenuItem.Text = "Credits";
-            // 
-            // licenseToolStripMenuItem
-            // 
-            this.licenseToolStripMenuItem.Name = "licenseToolStripMenuItem";
-            this.licenseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.licenseToolStripMenuItem.Text = "License";
-            // 
-            // networkShareClbx
-            // 
-            this.networkShareClbx.CheckOnClick = true;
-            this.networkShareClbx.FormattingEnabled = true;
-            this.networkShareClbx.Items.AddRange(new object[] {
-            "(F:) //192.168.1.118/lt-nas-01-productive"});
-            this.networkShareClbx.Location = new System.Drawing.Point(12, 38);
-            this.networkShareClbx.Name = "networkShareClbx";
-            this.networkShareClbx.Size = new System.Drawing.Size(353, 94);
-            this.networkShareClbx.TabIndex = 4;
-            // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
@@ -148,6 +115,7 @@
             this.testConnectionToolStripMenuItem.Name = "testConnectionToolStripMenuItem";
             this.testConnectionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.testConnectionToolStripMenuItem.Text = "Test Connection";
+            this.testConnectionToolStripMenuItem.Click += new System.EventHandler(this.testConnectionToolStripMenuItem_Click);
             // 
             // languageToolStripMenuItem
             // 
@@ -161,20 +129,53 @@
             // englishToolStripMenuItem
             // 
             this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            this.englishToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.englishToolStripMenuItem.Text = "English";
             // 
             // germanToolStripMenuItem
             // 
             this.germanToolStripMenuItem.Name = "germanToolStripMenuItem";
-            this.germanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.germanToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.germanToolStripMenuItem.Text = "German";
+            // 
+            // helpToolStripItem
+            // 
+            this.helpToolStripItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.creditsToolStripMenuItem,
+            this.licenseToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.helpToolStripItem.Name = "helpToolStripItem";
+            this.helpToolStripItem.Size = new System.Drawing.Size(24, 20);
+            this.helpToolStripItem.Text = "?";
+            // 
+            // creditsToolStripMenuItem
+            // 
+            this.creditsToolStripMenuItem.Name = "creditsToolStripMenuItem";
+            this.creditsToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.creditsToolStripMenuItem.Text = "Credits";
+            // 
+            // licenseToolStripMenuItem
+            // 
+            this.licenseToolStripMenuItem.Name = "licenseToolStripMenuItem";
+            this.licenseToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.licenseToolStripMenuItem.Text = "License";
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // networkShareClbx
+            // 
+            this.networkShareClbx.CheckOnClick = true;
+            this.networkShareClbx.FormattingEnabled = true;
+            this.networkShareClbx.Items.AddRange(new object[] {
+            "(F:) //192.168.1.118/lt-nas-01-productive"});
+            this.networkShareClbx.Location = new System.Drawing.Point(12, 38);
+            this.networkShareClbx.Name = "networkShareClbx";
+            this.networkShareClbx.Size = new System.Drawing.Size(353, 94);
+            this.networkShareClbx.TabIndex = 4;
             // 
             // MainForm
             // 

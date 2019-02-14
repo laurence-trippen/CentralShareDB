@@ -50,5 +50,22 @@ namespace CentralShareDB_Client
         {
             Application.Exit();
         }
+
+        private void testConnectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool isReachable = DatabaseConnection.Instance.Test();
+
+            if (!isReachable)
+            {
+                MessageBox.Show("MongoDB is not reachable. Please configure.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                ConnectionForm connectionForm = new ConnectionForm();
+                connectionForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("MongoDB is reachable.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
