@@ -1,4 +1,6 @@
-﻿using CentralShareDB_Client.Model;
+﻿using CentralShareDB_Client.DB;
+using CentralShareDB_Client.Model;
+using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,6 +56,17 @@ namespace CentralShareDB_Client.Forms
             {
                 NetworkShare share = new NetworkShare(driveLetter, path);
                 NetworkShares.Instance.Shares.Add(share);
+
+                var document = new BsonDocument
+                {
+                    {"share_letter", new BsonString(driveLetter)},
+                    {"share_path", new BsonString(path)}
+                };
+
+                DatabaseConnection connection = DatabaseConnection.Instance;
+                var database = connection.Client.GetDatabase(Properties.Settings.Default.mongodb_database);
+                var collection = database.GetCollection<BsonDocument>(Properties.Settings.Default.mongodb_collection_shares);
+                collection.InsertOne(document);
 
                 this.Close();
             }
