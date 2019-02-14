@@ -79,7 +79,18 @@ namespace CentralShareDB_Client
 
         private void addShareBtn_Click(object sender, EventArgs e)
         {
-            // DriveSettings.MapNetworkDrive("Z", @"\\192.168.1.118\lt-nas-01-productive");
+            foreach (Object item in sharesListBox.SelectedItems)
+            {
+                NetworkShare share = (NetworkShare)item;
+                if (NetworkDrive.IsDriveMapped(share.ShareLetter))
+                {
+                    MessageBox.Show("Letter Drive (" + share.ShareLetter + ":) is already mounted!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    NetworkDrive.MapNetworkDrive(share.ShareLetter, share.SharePath);
+                }
+            }
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)

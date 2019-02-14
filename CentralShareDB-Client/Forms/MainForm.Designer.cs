@@ -47,6 +47,7 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteShareBtn = new System.Windows.Forms.Button();
             this.sharesListBox = new System.Windows.Forms.ListBox();
+            this.refreshBtn = new System.Windows.Forms.Button();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -197,12 +198,24 @@
             this.sharesListBox.Size = new System.Drawing.Size(353, 95);
             this.sharesListBox.TabIndex = 6;
             // 
+            // refreshBtn
+            // 
+            this.refreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.refreshBtn.BackgroundImage = global::CentralShareDB_Client.Properties.Resources.refresh_2_;
+            this.refreshBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.refreshBtn.Location = new System.Drawing.Point(283, 140);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(38, 28);
+            this.refreshBtn.TabIndex = 7;
+            this.refreshBtn.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(377, 183);
+            this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.sharesListBox);
             this.Controls.Add(this.deleteShareBtn);
             this.Controls.Add(this.addShareBtn);
@@ -239,6 +252,7 @@
         private System.Windows.Forms.ToolStripMenuItem addNewShareToolStripMenuItem;
         private System.Windows.Forms.Button deleteShareBtn;
         private System.Windows.Forms.ListBox sharesListBox;
+        private System.Windows.Forms.Button refreshBtn;
     }
 }
 

@@ -80,7 +80,7 @@
     </Compile>
     <Compile Include="Model\NetworkShare.cs" />
     <Compile Include="Model\NetworkShares.cs" />
-    <Compile Include="Utils\DriveSettings.cs" />
+    <Compile Include="Utils\NetworkDrive.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +123,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\icon.ico" />
+    <None Include="Resources\refresh%282%29.png" />
+    <None Include="Resources\refresh%281%29.png" />
+    <None Include="Resources\refresh.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\mongodb.jpg" />

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CentralShareDB_Client
 {
-    public class DriveSettings
+    public class NetworkDrive
     {
         private enum ResourceScope
         {
