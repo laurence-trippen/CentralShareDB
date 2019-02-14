@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using CentralShareDB_Client.DB;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -42,28 +43,24 @@ namespace CentralShareDB_Client
 
         private void testConnectionBtn_Click(object sender, EventArgs e)
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("mongodb://");
-            sb.Append(this.hostTbx.Text);
-            sb.Append("/");
-            sb.Append(this.portNud.Value);
+            string host = this.hostTbx.Text;
+            int port = (int) this.portNud.Value;
 
-            string connection = sb.ToString();
+            DatabaseAddress address = new DatabaseAddress(host, port);
+            DatabaseConnection connection = DatabaseConnection.Instance;
 
-            var client = new MongoClient(connection);
-            var database = client.GetDatabase("centralsharedb");
-            bool isMongoAlive = database.RunCommandAsync((Command<BsonDocument>)"{ping:1}").Wait(1000);
+            connection.Address = address;
+            connection.Connect();
+            bool isReachable = connection.Test();
 
-            if (isMongoAlive)
+            if (isReachable)
             {
                 MessageBox.Show("MongoDB is reachable.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 MessageBox.Show("MongoDB is not reachable.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            
+            } 
         }
     }
 }

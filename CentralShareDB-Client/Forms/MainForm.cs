@@ -15,7 +15,11 @@ namespace CentralShareDB_Client
         public MainForm()
         {
             InitializeComponent();
+            this.TestConnection();
+        }
 
+        private void TestConnection()
+        {
             string host = Properties.Settings.Default.mongodb_host;
             int port = Properties.Settings.Default.mongodb_port;
 
