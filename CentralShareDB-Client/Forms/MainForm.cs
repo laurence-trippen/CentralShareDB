@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CentralShareDB_Client.DB;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,24 @@ namespace CentralShareDB_Client
         public MainForm()
         {
             InitializeComponent();
+
+            string host = Properties.Settings.Default.mongodb_host;
+            int port = Properties.Settings.Default.mongodb_port;
+
+            DatabaseAddress address = new DatabaseAddress(host, port);
+            DatabaseConnection connection = DatabaseConnection.Instance;
+
+            connection.Address = address;
+            connection.Connect();
+            bool isReachable = connection.Test();
+
+            if (!isReachable)
+            {
+                MessageBox.Show("MongoDB is not reachable. Please configure.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                ConnectionForm connectionForm = new ConnectionForm();
+                connectionForm.ShowDialog();
+            }
         }
 
         private void addShareBtn_Click(object sender, EventArgs e)
