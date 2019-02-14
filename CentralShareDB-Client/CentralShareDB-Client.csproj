@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>server.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DnsClient, Version=1.0.7.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
       <HintPath>..\packages\DnsClient.1.0.7\lib\net45\DnsClient.dll</HintPath>
@@ -123,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\icon.ico" />
+    <Content Include="server.ico" />
     <None Include="Resources\refresh%282%29.png" />
     <None Include="Resources\refresh%281%29.png" />
     <None Include="Resources\refresh.png" />
