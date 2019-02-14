@@ -191,6 +191,9 @@
             // 
             // sharesListBox
             // 
+            this.sharesListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.sharesListBox.FormattingEnabled = true;
             this.sharesListBox.Location = new System.Drawing.Point(12, 38);
             this.sharesListBox.Name = "sharesListBox";
