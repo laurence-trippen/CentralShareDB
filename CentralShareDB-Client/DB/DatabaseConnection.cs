@@ -24,7 +24,7 @@ namespace CentralShareDB_Client.DB
             }
         }
 
-        private MongoClient client;
+        public MongoClient Client { get; private set; }
         public DatabaseAddress Address { get; set; }
 
         private DatabaseConnection()
@@ -33,14 +33,14 @@ namespace CentralShareDB_Client.DB
 
         public void Connect()
         {
-            this.client = new MongoClient(Address.GetFullAddress());
+            this.Client = new MongoClient(Address.GetFullAddress());
         }
 
         public bool Test()
         {
-            if (this.client != null)
+            if (this.Client != null)
             {
-                var database = client.GetDatabase(Properties.Settings.Default.mongodb_database);
+                var database = Client.GetDatabase(Properties.Settings.Default.mongodb_database);
                 return database.RunCommandAsync((Command<BsonDocument>)"{ping:1}").Wait(1000);
             }
             else
@@ -51,9 +51,9 @@ namespace CentralShareDB_Client.DB
 
         public bool HasDatabase(string database)
         {
-            if (this.client != null)
+            if (this.Client != null)
             {
-                var databases = client.ListDatabaseNames();
+                var databases = Client.ListDatabaseNames();
                 if (databases.ToList().Contains(database))
                     return true;
                 else
@@ -67,9 +67,9 @@ namespace CentralShareDB_Client.DB
 
         public bool HasDatabaseCollection(string database, string collection)
         {
-            if (this.client != null)
+            if (this.Client != null)
             {
-                var db = client.GetDatabase(database);
+                var db = Client.GetDatabase(database);
                 var cls = db.ListCollectionNames();
                 if (cls.ToList().Contains(collection))
                     return true;
@@ -84,9 +84,9 @@ namespace CentralShareDB_Client.DB
 
         public void CreateCollection(string name)
         {
-            if (this.client != null)
+            if (this.Client != null)
             {
-                var database = client.GetDatabase(Properties.Settings.Default.mongodb_database);
+                var database = Client.GetDatabase(Properties.Settings.Default.mongodb_database);
                 database.CreateCollection(name);
             }
         }

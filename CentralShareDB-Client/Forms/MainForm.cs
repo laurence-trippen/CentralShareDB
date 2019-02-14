@@ -1,5 +1,7 @@
 ﻿using CentralShareDB_Client.DB;
 using CentralShareDB_Client.Forms;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +19,7 @@ namespace CentralShareDB_Client
         {
             InitializeComponent();
             this.TestConnection();
+            this.LoadShares();
         }
 
         private void TestConnection()
@@ -40,9 +43,31 @@ namespace CentralShareDB_Client
             }
             else
             {
-                if (!connection.HasDatabaseCollection(Properties.Settings.Default.mongodb_database, "network_shares"))
+                if (!connection.HasDatabaseCollection(Properties.Settings.Default.mongodb_database, Properties.Settings.Default.mongodb_collection_shares))
                 {
-                    connection.CreateCollection("network_shares");
+                    connection.CreateCollection(Properties.Settings.Default.mongodb_collection_shares);
+                }
+            }
+        }
+
+        private void LoadShares()
+        {
+            DatabaseConnection connection = DatabaseConnection.Instance;
+            var database = connection.Client.GetDatabase(Properties.Settings.Default.mongodb_database);
+            var sharesCollection = database.GetCollection<BsonDocument>(Properties.Settings.Default.mongodb_collection_shares);
+
+            using (IAsyncCursor<BsonDocument> cursor = sharesCollection.FindSync(new BsonDocument()))
+            {
+                while (cursor.MoveNext())
+                {
+                    IEnumerable<BsonDocument> batch = cursor.Current;
+                    foreach (BsonDocument document in batch)
+                    {
+                        string shareLetter = document["share_letter"].AsString;
+                        string sharePath = document["share_path"].AsString;
+
+
+                    }
                 }
             }
         }

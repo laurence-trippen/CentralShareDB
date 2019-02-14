@@ -11,5 +11,8 @@
     <Setting Name="mongodb_database" Type="System.String" Scope="User">
       <Value Profile="(Default)">centralsharedb</Value>
     </Setting>
+    <Setting Name="mongodb_collection_shares" Type="System.String" Scope="User">
+      <Value Profile="(Default)">network_shares</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

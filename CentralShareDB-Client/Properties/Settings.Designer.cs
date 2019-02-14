@@ -58,5 +58,17 @@ namespace CentralShareDB_Client.Properties {
                 this["mongodb_database"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("network_shares")]
+        public string mongodb_collection_shares {
+            get {
+                return ((string)(this["mongodb_collection_shares"]));
+            }
+            set {
+                this["mongodb_collection_shares"] = value;
+            }
+        }
     }
 }
