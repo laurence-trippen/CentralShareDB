@@ -38,6 +38,18 @@ namespace CentralShareDB_Client
                 ConnectionForm connectionForm = new ConnectionForm();
                 connectionForm.ShowDialog();
             }
+            else
+            {
+                if (!connection.HasDatabase("centralsharedb"))
+                {
+
+
+                    if (connection.HasDatabaseCollection("centralsharedb", "network_shares"))
+                    {
+
+                    }
+                }
+            }
         }
 
         private void addShareBtn_Click(object sender, EventArgs e)

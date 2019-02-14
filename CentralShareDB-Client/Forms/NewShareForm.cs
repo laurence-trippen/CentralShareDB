@@ -42,7 +42,17 @@ namespace CentralShareDB_Client.Forms
 
         private void newShareBtn_Click(object sender, EventArgs e)
         {
+            string driveLetter = this.driveLettersCbx.SelectedItem.ToString();
+            string path = this.pathTbx.Text;
 
+            if (string.IsNullOrEmpty(path))
+            {
+                MessageBox.Show("Path is not set!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                this.Close();
+            }
         }
     }
 }

@@ -48,5 +48,38 @@ namespace CentralShareDB_Client.DB
                 return false;
             }
         }
+
+        public bool HasDatabase(string database)
+        {
+            if (this.client != null)
+            {
+                var databases = client.ListDatabaseNames();
+                if (databases.ToList().Contains(database))
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool HasDatabaseCollection(string database, string collection)
+        {
+            if (this.client != null)
+            {
+                var db = client.GetDatabase(database);
+                var cls = db.ListCollectionNames();
+                if (cls.ToList().Contains(collection))
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
