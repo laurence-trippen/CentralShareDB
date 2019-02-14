@@ -32,6 +32,7 @@
             this.addShareBtn = new System.Windows.Forms.Button();
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewShareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dbVerbindungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,16 +45,15 @@
             this.creditsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.licenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.networkShareClbx = new System.Windows.Forms.CheckedListBox();
-            this.addNewShareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteShareBtn = new System.Windows.Forms.Button();
+            this.sharesListBox = new System.Windows.Forms.ListBox();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // addShareBtn
             // 
             this.addShareBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.addShareBtn.Location = new System.Drawing.Point(11, 138);
+            this.addShareBtn.Location = new System.Drawing.Point(11, 140);
             this.addShareBtn.Name = "addShareBtn";
             this.addShareBtn.Size = new System.Drawing.Size(130, 28);
             this.addShareBtn.TabIndex = 0;
@@ -82,10 +82,17 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // addNewShareToolStripMenuItem
+            // 
+            this.addNewShareToolStripMenuItem.Name = "addNewShareToolStripMenuItem";
+            this.addNewShareToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.addNewShareToolStripMenuItem.Text = "Add New Share";
+            this.addNewShareToolStripMenuItem.Click += new System.EventHandler(this.addNewShareToolStripMenuItem_Click);
+            // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -110,14 +117,14 @@
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // testConnectionToolStripMenuItem
             // 
             this.testConnectionToolStripMenuItem.Name = "testConnectionToolStripMenuItem";
-            this.testConnectionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.testConnectionToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.testConnectionToolStripMenuItem.Text = "Test Connection";
             this.testConnectionToolStripMenuItem.Click += new System.EventHandler(this.testConnectionToolStripMenuItem_Click);
             // 
@@ -170,36 +177,24 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.helpToolStripMenuItem.Text = "Help";
             // 
-            // networkShareClbx
-            // 
-            this.networkShareClbx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.networkShareClbx.CheckOnClick = true;
-            this.networkShareClbx.FormattingEnabled = true;
-            this.networkShareClbx.Items.AddRange(new object[] {
-            "(F:) //192.168.1.118/lt-nas-01-productive"});
-            this.networkShareClbx.Location = new System.Drawing.Point(12, 38);
-            this.networkShareClbx.Name = "networkShareClbx";
-            this.networkShareClbx.Size = new System.Drawing.Size(353, 94);
-            this.networkShareClbx.TabIndex = 4;
-            // 
-            // addNewShareToolStripMenuItem
-            // 
-            this.addNewShareToolStripMenuItem.Name = "addNewShareToolStripMenuItem";
-            this.addNewShareToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addNewShareToolStripMenuItem.Text = "Add New Share";
-            this.addNewShareToolStripMenuItem.Click += new System.EventHandler(this.addNewShareToolStripMenuItem_Click);
-            // 
             // deleteShareBtn
             // 
             this.deleteShareBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.deleteShareBtn.Location = new System.Drawing.Point(147, 138);
+            this.deleteShareBtn.Location = new System.Drawing.Point(147, 140);
             this.deleteShareBtn.Name = "deleteShareBtn";
             this.deleteShareBtn.Size = new System.Drawing.Size(130, 28);
             this.deleteShareBtn.TabIndex = 5;
             this.deleteShareBtn.Text = "Delete Share";
             this.deleteShareBtn.UseVisualStyleBackColor = true;
+            // 
+            // sharesListBox
+            // 
+            this.sharesListBox.FormattingEnabled = true;
+            this.sharesListBox.Location = new System.Drawing.Point(12, 38);
+            this.sharesListBox.Name = "sharesListBox";
+            this.sharesListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.sharesListBox.Size = new System.Drawing.Size(353, 95);
+            this.sharesListBox.TabIndex = 6;
             // 
             // MainForm
             // 
@@ -207,8 +202,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(377, 183);
+            this.Controls.Add(this.sharesListBox);
             this.Controls.Add(this.deleteShareBtn);
-            this.Controls.Add(this.networkShareClbx);
             this.Controls.Add(this.addShareBtn);
             this.Controls.Add(this.mainMenuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -234,7 +229,6 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripItem;
         private System.Windows.Forms.ToolStripMenuItem creditsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem licenseToolStripMenuItem;
-        private System.Windows.Forms.CheckedListBox networkShareClbx;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testConnectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
@@ -243,6 +237,7 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addNewShareToolStripMenuItem;
         private System.Windows.Forms.Button deleteShareBtn;
+        private System.Windows.Forms.ListBox sharesListBox;
     }
 }
 

@@ -15,7 +15,7 @@ namespace CentralShareDB_Client.Model
         {
             get
             {
-                return "(" + ShareLetter + ") " + SharePath;
+                return "(" + ShareLetter + ":) " + SharePath;
             }
         }
 

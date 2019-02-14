@@ -72,9 +72,9 @@ namespace CentralShareDB_Client
                 }
             }
 
-            ((ListBox)networkShareClbx).DataSource = NetworkShares.Instance.Shares;
-            ((ListBox)networkShareClbx).DisplayMember = "DisplayMember";
-            ((ListBox)networkShareClbx).ValueMember = "IsChecked";
+            sharesListBox.DataSource = NetworkShares.Instance.Shares;
+            sharesListBox.DisplayMember = "DisplayMember";
+            sharesListBox.ValueMember = "IsChecked";
         }
 
         private void addShareBtn_Click(object sender, EventArgs e)
@@ -114,6 +114,7 @@ namespace CentralShareDB_Client
         {
             NewShareForm nsf = new NewShareForm();
             nsf.ShowDialog();
+            sharesListBox.Update();
         }
     }
 }

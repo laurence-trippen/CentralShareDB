@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CentralShareDB_Client.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -51,6 +52,9 @@ namespace CentralShareDB_Client.Forms
             }
             else
             {
+                NetworkShare share = new NetworkShare(driveLetter, path);
+                NetworkShares.Instance.Shares.Add(share);
+
                 this.Close();
             }
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,11 +23,11 @@ namespace CentralShareDB_Client.Model
             }
         }
 
-        public List<NetworkShare> Shares { get; private set; }
+        public BindingList<NetworkShare> Shares { get; private set; }
 
         private NetworkShares()
         {
-            this.Shares = new List<NetworkShare>();
+            this.Shares = new BindingList<NetworkShare>();
         }
     }
 }
