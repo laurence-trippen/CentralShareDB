@@ -141,6 +141,11 @@ namespace CentralShareDB_Client
                 foreach (NetworkShare share in shareBuffer)
                 {
                     NetworkShares.Instance.Shares.Remove(share);
+
+                    DatabaseConnection connection = DatabaseConnection.Instance;
+                    var database = connection.Client.GetDatabase(Properties.Settings.Default.mongodb_database);
+                    var collection = database.GetCollection<BsonDocument>(Properties.Settings.Default.mongodb_collection_shares);
+                    collection.DeleteOne(Builders<BsonDocument>.Filter.Eq("share_letter", share.ShareLetter));
                 }
             }
         }
