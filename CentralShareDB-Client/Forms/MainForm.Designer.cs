@@ -156,6 +156,7 @@
             this.refreshToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.refreshToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
             // 
@@ -251,6 +252,7 @@
             this.refreshBtn.Size = new System.Drawing.Size(38, 28);
             this.refreshBtn.TabIndex = 7;
             this.refreshBtn.UseVisualStyleBackColor = true;
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
             // systemTryContextMenuStrip
             // 

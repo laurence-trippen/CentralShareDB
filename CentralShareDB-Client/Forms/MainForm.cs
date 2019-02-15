@@ -185,5 +185,15 @@ namespace CentralShareDB_Client
             this.Show();
             WindowState = FormWindowState.Normal;
         }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NetworkShares.Instance.Sync();
+        }
+
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            NetworkShares.Instance.Sync();
+        }
     }
 }
