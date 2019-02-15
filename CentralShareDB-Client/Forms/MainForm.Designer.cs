@@ -48,7 +48,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.editShareBtn = new System.Windows.Forms.Button();
             this.refreshBtn = new System.Windows.Forms.Button();
             this.deleteShareBtn = new System.Windows.Forms.Button();
             this.addNewShareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -214,16 +214,17 @@
             this.button2.Text = "Unmount Share";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // editShareBtn
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.BackgroundImage = global::CentralShareDB_Client.Properties.Resources.pencil_1_;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.Location = new System.Drawing.Point(283, 140);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(38, 28);
-            this.button1.TabIndex = 8;
-            this.button1.UseVisualStyleBackColor = true;
+            this.editShareBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.editShareBtn.BackgroundImage = global::CentralShareDB_Client.Properties.Resources.pencil_1_;
+            this.editShareBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.editShareBtn.Location = new System.Drawing.Point(283, 140);
+            this.editShareBtn.Name = "editShareBtn";
+            this.editShareBtn.Size = new System.Drawing.Size(38, 28);
+            this.editShareBtn.TabIndex = 8;
+            this.editShareBtn.UseVisualStyleBackColor = true;
+            this.editShareBtn.Click += new System.EventHandler(this.editShareBtn_Click);
             // 
             // refreshBtn
             // 
@@ -288,15 +289,15 @@
             // 
             this.editToolStripMenuItem.Image = global::CentralShareDB_Client.Properties.Resources.database_1_;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem.Text = "Edit Connection";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // testConnectionToolStripMenuItem
             // 
             this.testConnectionToolStripMenuItem.Image = global::CentralShareDB_Client.Properties.Resources.database_7_;
             this.testConnectionToolStripMenuItem.Name = "testConnectionToolStripMenuItem";
-            this.testConnectionToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.testConnectionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.testConnectionToolStripMenuItem.Text = "Test Connection";
             this.testConnectionToolStripMenuItem.Click += new System.EventHandler(this.testConnectionToolStripMenuItem_Click);
             // 
@@ -329,7 +330,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(377, 183);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.editShareBtn);
             this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.sharesListBox);
             this.Controls.Add(this.deleteShareBtn);
@@ -381,7 +382,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button editShareBtn;
         private System.Windows.Forms.Button button2;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace CentralShareDB_Client.Forms
 {
-    partial class NewShareForm
+    partial class ShareForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewShareForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShareForm));
             this.driveLettersCbx = new System.Windows.Forms.ComboBox();
             this.newShareBtn = new System.Windows.Forms.Button();
             this.pathTbx = new System.Windows.Forms.TextBox();

@@ -14,12 +14,25 @@ using System.Windows.Forms;
 
 namespace CentralShareDB_Client.Forms
 {
-    public partial class NewShareForm : Form
+    public partial class ShareForm : Form
     {
-        public NewShareForm()
+        private bool isEditMode = false;
+        private NetworkShare editShare;
+
+        public ShareForm()
         {
             InitializeComponent();
             this.LoadDriveLetters();
+        }
+
+        public ShareForm(NetworkShare share)
+        {
+            InitializeComponent();
+            this.editShare = share;
+            this.isEditMode = true;
+            this.newShareBtn.Text = this.Text = "Edit Share";
+            this.driveLettersCbx.SelectedItem = share.ShareLetter;
+            this.pathTbx.Text = share.SharePath;
         }
 
         private void LoadDriveLetters()

@@ -123,7 +123,7 @@ namespace CentralShareDB_Client
 
         private void addNewShareToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NewShareForm nsf = new NewShareForm();
+            ShareForm nsf = new ShareForm();
             nsf.ShowDialog();
             sharesListBox.Update();
         }
@@ -205,6 +205,25 @@ namespace CentralShareDB_Client
                 NetworkShares.Instance.Sync();
             }
             */
+        }
+
+        private void editShareBtn_Click(object sender, EventArgs e)
+        {
+            NetworkShare[] shareBuffer = new NetworkShare[sharesListBox.SelectedItems.Count];
+
+            int i = 0;
+            foreach (Object item in sharesListBox.SelectedItems)
+            {
+                NetworkShare share = (NetworkShare)item;
+                shareBuffer[i] = share;
+                i++;
+            }
+
+            foreach (NetworkShare share in shareBuffer)
+            {
+                ShareForm sf = new ShareForm(share);
+                sf.ShowDialog();
+            }
         }
     }
 }
