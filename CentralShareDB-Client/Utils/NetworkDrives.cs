@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CentralShareDB_Client
 {
-    public class NetworkDrive
+    public class NetworkDrives
     {
         private enum ResourceScope
         {
@@ -16,6 +16,7 @@ namespace CentralShareDB_Client
             RESOURCE_RECENT,
             RESOURCE_CONTEXT
         }
+
         private enum ResourceType
         {
             RESOURCETYPE_ANY,
@@ -23,6 +24,7 @@ namespace CentralShareDB_Client
             RESOURCETYPE_PRINT,
             RESOURCETYPE_RESERVED
         }
+
         private enum ResourceUsage
         {
             RESOURCEUSAGE_CONNECTABLE = 0x00000001,
@@ -31,6 +33,7 @@ namespace CentralShareDB_Client
             RESOURCEUSAGE_SIBLING = 0x00000008,
             RESOURCEUSAGE_ATTACHED = 0x00000010
         }
+
         private enum ResourceDisplayType
         {
             RESOURCEDISPLAYTYPE_GENERIC,
@@ -46,6 +49,7 @@ namespace CentralShareDB_Client
             RESOURCEDISPLAYTYPE_TREE,
             RESOURCEDISPLAYTYPE_NDSCONTAINER
         }
+
         [StructLayout(LayoutKind.Sequential)]
         private struct NETRESOURCE
         {
@@ -58,6 +62,7 @@ namespace CentralShareDB_Client
             public string sComments;
             public string sProvider;
         }
+
         [DllImport("mpr.dll")]
         private static extern int WNetAddConnection2
             (ref NETRESOURCE oNetworkResource, string sPassword,

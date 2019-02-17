@@ -82,13 +82,13 @@ namespace CentralShareDB_Client
             foreach (Object item in sharesListBox.SelectedItems)
             {
                 NetworkShare share = (NetworkShare)item;
-                if (NetworkDrive.IsDriveMapped(share.ShareLetter))
+                if (NetworkDrives.IsDriveMapped(share.ShareLetter))
                 {
                     MessageBox.Show("Letter Drive (" + share.ShareLetter + ":) is already mounted!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    NetworkDrive.MapNetworkDrive(share.ShareLetter, share.SharePath);
+                    NetworkDrives.MapNetworkDrive(share.ShareLetter, share.SharePath);
                 }
             }
         }
@@ -224,6 +224,22 @@ namespace CentralShareDB_Client
             {
                 ShareForm sf = new ShareForm(share);
                 sf.ShowDialog();
+            }
+        }
+
+        private void unmountBtn_Click(object sender, EventArgs e)
+        {
+            foreach (Object item in sharesListBox.SelectedItems)
+            {
+                NetworkShare share = (NetworkShare)item;
+                if (NetworkDrives.IsDriveMapped(share.ShareLetter))
+                {
+                    NetworkDrives.DisconnectNetworkDrive(share.ShareLetter, false);
+                }
+                else
+                {
+                    MessageBox.Show("You can not unmount an unmounted drive.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
     }

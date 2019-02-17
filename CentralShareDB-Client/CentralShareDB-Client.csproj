@@ -98,7 +98,7 @@
     </Compile>
     <Compile Include="Model\NetworkShare.cs" />
     <Compile Include="Model\NetworkShares.cs" />
-    <Compile Include="Utils\NetworkDrive.cs" />
+    <Compile Include="Utils\NetworkDrives.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
