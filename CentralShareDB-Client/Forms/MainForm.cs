@@ -164,6 +164,7 @@ namespace CentralShareDB_Client
         private void showToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Show();
+            WindowState = FormWindowState.Normal;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
