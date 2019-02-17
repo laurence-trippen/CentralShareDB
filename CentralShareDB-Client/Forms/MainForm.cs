@@ -47,9 +47,25 @@ namespace CentralShareDB_Client
                 if (!connection.HasDatabaseCollection(Properties.Settings.Default.mongodb_database, Properties.Settings.Default.mongodb_collection_shares))
                 {
                     connection.CreateCollection(Properties.Settings.Default.mongodb_collection_shares);
+                    var database = connection.Client.GetDatabase(Properties.Settings.Default.mongodb_database);
+                    var sharesCollection = database.GetCollection<BsonDocument>(Properties.Settings.Default.mongodb_collection_shares);
+                    /*
+                    var options = new CreateIndexOptions() { Unique = true };
+                    var field = new StringFieldDefinition<BsonDocument>("string_letter");
+                    var index = new IndexKeysDefinitionBuilder<BsonDocument>().Ascending(field);
+                    */
+                    // db.network_shares.createIndex({ "share_letter": 1}, { unique: true});
+                    // var keys = Builders<BsonDocument>.IndexKeys.Ascending("i");
+                    // collection.Indexes.CreateOne(keys);
+
+                    sharesCollection.Indexes.CreateOne("{share_letter : 1}", new CreateIndexOptions()
+                    {
+                        Unique = true
+                    });
                 }
             }
         }
+
 
         private void LoadShares()
         {

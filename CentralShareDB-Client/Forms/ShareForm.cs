@@ -70,8 +70,9 @@ namespace CentralShareDB_Client.Forms
                 // New Share
                 if (editShare == null)
                 {
+                    bool wentWrong = false;
+
                     NetworkShare share = new NetworkShare(driveLetter, path);
-                    NetworkShares.Instance.Shares.Add(share);
 
                     var document = new BsonDocument
                     {
@@ -82,7 +83,26 @@ namespace CentralShareDB_Client.Forms
                     DatabaseConnection connection = DatabaseConnection.Instance;
                     var database = connection.Client.GetDatabase(Properties.Settings.Default.mongodb_database);
                     var collection = database.GetCollection<BsonDocument>(Properties.Settings.Default.mongodb_collection_shares);
-                    collection.InsertOne(document);
+                    try
+                    {
+                        collection.InsertOne(document);
+                    }
+                    catch (MongoServerException mse)
+                    {
+                        wentWrong = true;
+                        MessageBox.Show(mse.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        if (!wentWrong)
+                        {
+                            NetworkShares.Instance.Shares.Add(share);
+                        }
+                        else
+                        {
+                            wentWrong = false;
+                        }
+                    }
 
                     this.Close();
                 }
