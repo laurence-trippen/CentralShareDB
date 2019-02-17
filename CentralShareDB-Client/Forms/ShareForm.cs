@@ -1,6 +1,7 @@
 ﻿using CentralShareDB_Client.DB;
 using CentralShareDB_Client.Model;
 using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,6 @@ namespace CentralShareDB_Client.Forms
 {
     public partial class ShareForm : Form
     {
-        private bool isEditMode = false;
         private NetworkShare editShare;
 
         public ShareForm()
@@ -28,11 +28,11 @@ namespace CentralShareDB_Client.Forms
         public ShareForm(NetworkShare share)
         {
             InitializeComponent();
+            this.LoadDriveLetters();
             this.editShare = share;
-            this.isEditMode = true;
             this.newShareBtn.Text = this.Text = "Edit Share";
-            this.driveLettersCbx.SelectedItem = share.ShareLetter;
             this.pathTbx.Text = share.SharePath;
+            this.driveLettersCbx.SelectedIndex = this.driveLettersCbx.FindString(share.ShareLetter);
         }
 
         private void LoadDriveLetters()
@@ -67,21 +67,45 @@ namespace CentralShareDB_Client.Forms
             }
             else
             {
-                NetworkShare share = new NetworkShare(driveLetter, path);
-                NetworkShares.Instance.Shares.Add(share);
-
-                var document = new BsonDocument
+                // New Share
+                if (editShare == null)
                 {
-                    {"share_letter", new BsonString(driveLetter)},
-                    {"share_path", new BsonString(path)}
-                };
+                    NetworkShare share = new NetworkShare(driveLetter, path);
+                    NetworkShares.Instance.Shares.Add(share);
 
-                DatabaseConnection connection = DatabaseConnection.Instance;
-                var database = connection.Client.GetDatabase(Properties.Settings.Default.mongodb_database);
-                var collection = database.GetCollection<BsonDocument>(Properties.Settings.Default.mongodb_collection_shares);
-                collection.InsertOne(document);
+                    var document = new BsonDocument
+                    {
+                        {"share_letter", new BsonString(driveLetter)},
+                        {"share_path", new BsonString(path)}
+                    };
 
-                this.Close();
+                    DatabaseConnection connection = DatabaseConnection.Instance;
+                    var database = connection.Client.GetDatabase(Properties.Settings.Default.mongodb_database);
+                    var collection = database.GetCollection<BsonDocument>(Properties.Settings.Default.mongodb_collection_shares);
+                    collection.InsertOne(document);
+
+                    this.Close();
+                }
+                else // Edit Share
+                {
+                    NetworkShares shares = NetworkShares.Instance;
+                    int index = shares.Shares.IndexOf(editShare);
+                    string editLetter = editShare.ShareLetter;
+                    editShare.ShareLetter = driveLetter;
+                    editShare.SharePath = path;
+                    shares.Shares[index] = editShare;
+
+                    DatabaseConnection connection = DatabaseConnection.Instance;
+                    var database = connection.Client.GetDatabase(Properties.Settings.Default.mongodb_database);
+                    var collection = database.GetCollection<BsonDocument>(Properties.Settings.Default.mongodb_collection_shares);
+                    var filter = Builders<BsonDocument>.Filter.Eq("share_letter", editLetter);
+                    var update = Builders<BsonDocument>.Update
+                        .Set("share_letter", driveLetter)
+                        .Set("share_path", path);
+                    var result = collection.UpdateOne(filter, update);
+
+                    this.Close();
+                }
             }
         }
     }
