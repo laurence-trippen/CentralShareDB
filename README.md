@@ -25,3 +25,16 @@ shares are centrally stored in computer networks.
 2. Configure the MongoDB-Server (database, collection and documents are generated automatically)
 3. Install the CentralShareDB client
 4. Connect the client to the MongoDB-Server
+
+## Credits
+
+Icons - Thanks to:
+
+Smashicons
+Icon made by [https://smashicons.com/] from www.flaticon.com
+
+Pixel Buddha
+Icon made by [https://www.flaticon.com/authors/nfo@pixelbuddha.net] from www.flaticon.com
+
+Alfredo Hernandez
+Icon made by [https://www.alfredocreates.com/] from www.flaticon.com
