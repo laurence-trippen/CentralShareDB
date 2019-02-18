@@ -41,3 +41,6 @@ Icon made by [https://www.alfredocreates.com/] from www.flaticon.com
 
 Freepik
 Icon made by [http://www.freepik.com/] from www.flaticon.com
+
+Roundicons
+Icon made by [https://roundicons.com/] from www.flaticon.com
