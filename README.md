@@ -1,4 +1,4 @@
-# CentralShareDB
+# CentralShareDB <img src="" align="right" width="90">
 CentralShareDB is a program with which drive letters of Windows 
 shares are centrally stored in computer networks.
 
