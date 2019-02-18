@@ -21,6 +21,7 @@ namespace CentralShareDB_Client
             InitializeComponent();
             this.hostTbx.Text = Properties.Settings.Default.mongodb_host;
             this.portNud.Value = Properties.Settings.Default.mongodb_port;
+            this.saveBtn.Enabled = false;
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
@@ -56,6 +57,7 @@ namespace CentralShareDB_Client
             if (isReachable)
             {
                 MessageBox.Show("MongoDB is reachable.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.saveBtn.Enabled = true;
             }
             else
             {
