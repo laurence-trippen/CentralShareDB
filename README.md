@@ -38,3 +38,6 @@ Icon made by [https://www.flaticon.com/authors/nfo@pixelbuddha.net] from www.fla
 
 Alfredo Hernandez
 Icon made by [https://www.alfredocreates.com/] from www.flaticon.com
+
+Freepik
+Icon made by [http://www.freepik.com/] from www.flaticon.com
