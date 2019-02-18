@@ -1,9 +1,8 @@
 # CentralShareDB
-A centralized windows share drive letter database system. 
+CentralShareDB is a program with which drive letters of Windows 
+shares are centrally stored in computer networks.
 
 [Download Latest Binary](https://github.com/laurence-trippen/CentralShareDB/releases/latest)
-
-CentralShareDB is a program with which drive letters of Windows shares are centrally stored in computer networks.
 
 ## The program is particularly suitable for
 
