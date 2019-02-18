@@ -33,6 +33,12 @@ namespace CentralShareDB_Client.Model
             this.Shares = new BindingList<NetworkShare>();
         }
 
+        public void Update(NetworkShare updateShare)
+        {
+            int index = Shares.IndexOf(updateShare);
+            Shares[index] = updateShare;
+        }
+
         public void Sync()
         {
             Shares.Clear();
@@ -50,8 +56,9 @@ namespace CentralShareDB_Client.Model
                     {
                         string shareLetter = document["share_letter"].AsString;
                         string sharePath = document["share_path"].AsString;
+                        bool mounted = NetworkDrives.IsDriveMapped(shareLetter);
 
-                        Shares.Add(new NetworkShare(shareLetter, sharePath));
+                        Shares.Add(new NetworkShare(shareLetter, sharePath, mounted));
                     }
                 }
             }

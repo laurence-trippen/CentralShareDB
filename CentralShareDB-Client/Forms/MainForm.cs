@@ -66,7 +66,6 @@ namespace CentralShareDB_Client
             }
         }
 
-
         private void LoadShares()
         {
             DatabaseConnection connection = DatabaseConnection.Instance;
@@ -82,8 +81,9 @@ namespace CentralShareDB_Client
                     {
                         string shareLetter = document["share_letter"].AsString;
                         string sharePath = document["share_path"].AsString;
+                        bool mounted = NetworkDrives.IsDriveMapped(shareLetter);
 
-                        NetworkShares.Instance.Shares.Add(new NetworkShare(shareLetter, sharePath));
+                        NetworkShares.Instance.Shares.Add(new NetworkShare(shareLetter, sharePath, mounted));
                     }
                 }
             }
@@ -91,6 +91,11 @@ namespace CentralShareDB_Client
             sharesListBox.DataSource = NetworkShares.Instance.Shares;
             sharesListBox.DisplayMember = "DisplayMember";
             sharesListBox.ValueMember = "IsChecked";
+        }
+
+        private void CheckMountedShares()
+        {
+
         }
 
         private void addShareBtn_Click(object sender, EventArgs e)
@@ -105,8 +110,11 @@ namespace CentralShareDB_Client
                 else
                 {
                     NetworkDrives.MapNetworkDrive(share.ShareLetter, share.SharePath);
+                    share.IsMounted = true;
                 }
             }
+
+            NetworkShares.Instance.Sync();
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
@@ -251,12 +259,15 @@ namespace CentralShareDB_Client
                 if (NetworkDrives.IsDriveMapped(share.ShareLetter))
                 {
                     NetworkDrives.DisconnectNetworkDrive(share.ShareLetter, false);
+                    share.IsMounted = false;
                 }
                 else
                 {
                     MessageBox.Show("You can not unmount an unmounted drive.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+
+            NetworkShares.Instance.Sync();
         }
     }
 }

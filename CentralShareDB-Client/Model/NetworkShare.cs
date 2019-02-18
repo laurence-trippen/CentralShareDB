@@ -9,13 +9,14 @@ namespace CentralShareDB_Client.Model
     public class NetworkShare
     {
         public bool IsChecked { get; set; }
+        public bool IsMounted { get; set; }
         public string ShareLetter { get; set; }
         public string SharePath { get; set; }
         public string DisplayMember
         {
             get
             {
-                return "(" + ShareLetter + ":) " + SharePath;
+                return (IsMounted ? "[Mounted]" : "[Not Mounted]") + "\t" + "(" + ShareLetter + ":)\t" + SharePath;
             }
         }
 
@@ -23,6 +24,14 @@ namespace CentralShareDB_Client.Model
         {
             this.ShareLetter = letter;
             this.SharePath = path;
+            this.IsMounted = false;
+        }
+
+        public NetworkShare(string letter, string path, bool mounted)
+        {
+            this.ShareLetter = letter;
+            this.SharePath = path;
+            this.IsMounted = mounted;
         }
     }
 }
