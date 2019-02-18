@@ -5,7 +5,7 @@ shares are centrally stored in computer networks.
 ## Showcase
 ![](https://github.com/laurence-trippen/CentralShareDB/blob/master/Preview/csdb-main.JPG?raw=true)
 ![](https://github.com/laurence-trippen/CentralShareDB/blob/master/Preview/csdb-new-share.JPG?raw=true)
-![](https://github.com/laurence-trippen/CentralShareDB/blob/master/Preview/csdb-new-connection.JPGG?raw=true)
+![](https://github.com/laurence-trippen/CentralShareDB/blob/master/Preview/csdb-new-connection.JPG?raw=true)
 
 ## Download
 
