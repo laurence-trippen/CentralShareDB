@@ -7,7 +7,7 @@ shares are centrally stored in computer networks.
 ![](https://github.com/laurence-trippen/CentralShareDB/blob/master/Preview/csdb-new-share.JPG?raw=true)
 ![](https://github.com/laurence-trippen/CentralShareDB/blob/master/Preview/csdb-new-connection.JPG?raw=true)
 
-## Download
+## Download :floppy_disk:
 
 [Download Latest Binary](https://github.com/laurence-trippen/CentralShareDB/releases/latest)
 
@@ -17,30 +17,38 @@ shares are centrally stored in computer networks.
 * Render farms
 
 ## Prerequisites
+
 * .NET Framework 4.5.2
 * MongoDB-Server version 4.0.6 and higher
 
-## Setup
+## Setup :hammer:
+
 1. Install the MongoDB-Server (4.0.6 and higher)
-2. Configure the MongoDB-Server (database, collection and documents are generated automatically)
+2. Configure the MongoDB-Server (database, collections and documents are generated automatically)
 3. Install the CentralShareDB client
 4. Connect the client to the MongoDB-Server
 
-## Credits
+## Progress (Future plans) :clipboard:
+
+* [] Full async MongoDB connection
+* [] Better drive letter selection
+* [] Language switch (:de:German, :gb:English)
+
+## Credits :star2:
 
 Icons - Thanks to:
 
-Smashicons
+* Smashicons
 Icon made by [https://smashicons.com/] from www.flaticon.com
 
-Pixel Buddha
+* Pixel Buddha
 Icon made by [https://www.flaticon.com/authors/nfo@pixelbuddha.net] from www.flaticon.com
 
-Alfredo Hernandez
+* Alfredo Hernandez
 Icon made by [https://www.alfredocreates.com/] from www.flaticon.com
 
-Freepik
+* Freepik
 Icon made by [http://www.freepik.com/] from www.flaticon.com
 
-Roundicons
+* Roundicons
 Icon made by [https://roundicons.com/] from www.flaticon.com
