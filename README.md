@@ -30,9 +30,10 @@ shares are centrally stored in computer networks.
 
 ## Progress (Future plans) :clipboard:
 
-* [] Full async MongoDB connection
-* [] Better drive letter selection
-* [] Language switch (:de:German, :gb:English)
+* [x] Test Connection before save connection settings 
+* [ ] Full async MongoDB connection
+* [ ] Better drive letter selection
+* [ ] Language switch (:de:German, :gb:English)
 
 ## Credits :star2:
 
