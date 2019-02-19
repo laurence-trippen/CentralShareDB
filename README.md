@@ -28,7 +28,7 @@ shares are centrally stored in computer networks.
 3. Install the CentralShareDB client
 4. Connect the client to the MongoDB-Server
 
-## Progress (Future plans) :clipboard:
+## Progress & Future plans :clipboard:
 
 * [x] Installer
 * [x] Test Connection before save connection settings 
