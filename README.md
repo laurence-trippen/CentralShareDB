@@ -32,6 +32,7 @@ shares are centrally stored in computer networks.
 ## Progress & Future plans :clipboard:
 
 * [x] Installer
+* [x] System Tray Icon Support
 * [x] Test Connection before save connection settings 
 * [ ] Full async MongoDB connection
 * [ ] Better drive letter selection
