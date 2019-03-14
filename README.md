@@ -7,6 +7,7 @@ shares are centrally stored in computer networks.
 ![](https://github.com/laurence-trippen/CentralShareDB/blob/master/Preview/csdb-new-share.JPG?raw=true)
 ![](https://github.com/laurence-trippen/CentralShareDB/blob/master/Preview/csdb-new-connection.JPG?raw=true)
 ![](https://github.com/laurence-trippen/CentralShareDB/blob/master/Preview/csdb-systray-background.JPG?raw=true)
+![](https://github.com/laurence-trippen/CentralShareDB/blob/master/Preview/csdb-systray-background-options.JPG?raw=true)
 
 ## Download :floppy_disk:
 
