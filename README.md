@@ -22,7 +22,7 @@ shares are centrally stored in computer networks.
 
 ## Prerequisites
 
-* **Supported OS:** *Windows Vista SP2, Windows 7 SP1, Windows 8, Windows 8.1, Windows Server 2008 SP2, Windows Server 2008 R2 SP1, Windows Server 2012 und Windows Server 2012 R2*
+* **Supported O.S.:** *Windows Vista SP2, Windows 7 SP1, Windows 8, Windows 8.1, Windows 10, Windows Server 2008 SP2, Windows Server 2008 R2 SP1, Windows Server 2012 und Windows Server 2012 R2*
 * .NET Framework **4.5.2**
 * MongoDB-Server version **4.0.6** and higher
 
